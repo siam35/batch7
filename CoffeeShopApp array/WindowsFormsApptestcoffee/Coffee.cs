@@ -15,7 +15,7 @@ namespace WindowsFormsApptestcoffee
         string[] customerArray = new string[20];
         string[] addressArray = new string[20];
         string[] orderArray = new string[20];
-        int[] contactArray = new int[20];
+        string[] contactArray = new string[20];
         int[] quantityArray = new int[20];
         int[] priceArray = new int[20];
 
@@ -69,11 +69,22 @@ namespace WindowsFormsApptestcoffee
 
                 }
                 customerArray[index] = nameTextBox.Text;
-                contactArray[index] = Convert.ToInt32(contactTextBox.Text);
+                contactArray[index] = contactTextBox.Text;
+                bool isExist = Array.Exists(contactArray, element => element == "contact number to check");
+                if (isExist == true)
+                {
+                    contactArray[index] = contactTextBox.Text;
+                }
+                else
+                {
+                   
+                    MessageBox.Show("phone number already exist");
+                }
                 addressArray[index] = addressTextBox.Text;
                 orderArray[index] = orderComboBox.Text;
                 quantityArray[index] = Convert.ToInt32(quantityTextBox.Text);
                 priceArray[index] = price;
+                
                 index++;
 
 
