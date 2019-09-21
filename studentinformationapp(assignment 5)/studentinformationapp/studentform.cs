@@ -132,7 +132,7 @@ namespace studentinformationapp
                 {
                     if (i == identify - 1)
                     {
-                        message += "serial: " + identify + "\n" +"ID: " +id[i] +"\n" + "Name: " + name[i] + "\n" + "Mobile: " + mobile[i] + "\n" + "Age: " + age[i] + "\n" + "Address: " + address[i] + "\n" + "GPA: " + gpa[i] + "\n";
+                        message +="\n" +"ID: " +id[i] +"\n" + "Name: " + name[i] + "\n" + "Mobile: " + mobile[i] + "\n" + "Age: " + age[i] + "\n" + "Address: " + address[i] + "\n" + "GPA: " + gpa[i] + "\n";
                     }
                 }
                 resultRichTextBox.Text = message;
@@ -223,7 +223,93 @@ namespace studentinformationapp
 
 
         }
+
+        private void searchButton_Click(object sender, EventArgs e)
+        {
+            resultRichTextBox.Clear();
+            if (idRadioButton.Checked)
+            {
+                if (id.Contains(idTextBox.Text))
+                {
+                    var j = id.IndexOf(idTextBox.Text);
+                    resultRichTextBox.AppendText(" \n");
+                    resultRichTextBox.AppendText("       student info      ");
+                    resultRichTextBox.AppendText("\n===============================");
+                    resultRichTextBox.AppendText("\n     student id:      " + id[j]);
+                    resultRichTextBox.AppendText("\n     student name:      " + name[j]);
+                    resultRichTextBox.AppendText("\n     student Mobile:      " + mobile[j]);
+                    resultRichTextBox.AppendText("\n     student age:      " + age[j]);
+                    resultRichTextBox.AppendText("\n     student addr.:      " + address[j]);
+                    resultRichTextBox.AppendText("\n     student GPA:      " + gpa[j]);
+                    resultRichTextBox.AppendText(" \n");
+
+                }
+
+                else
+                {
+                    resultRichTextBox.AppendText("       not found     ");
+                }
+            }
+
+            if (nameRadioButton.Checked)
+            {
+                if (name.Contains(nameTextBox.Text))
+                {
+                    var j = name.IndexOf(nameTextBox.Text);
+                    resultRichTextBox.AppendText(" \n");
+                    resultRichTextBox.AppendText("       student info      ");
+                    resultRichTextBox.AppendText("\n===============================");
+                    resultRichTextBox.AppendText("\n     student id:      " + id[j]);
+                    resultRichTextBox.AppendText("\n     student name:      " + name[j]);
+                    resultRichTextBox.AppendText("\n     student Mobile:      " + mobile[j]);
+                    resultRichTextBox.AppendText("\n     student age:      " + age[j]);
+                    resultRichTextBox.AppendText("\n     student addr.:      " + address[j]);
+                    resultRichTextBox.AppendText("\n     student GPA:      " + gpa[j]);
+                    resultRichTextBox.AppendText(" \n");
+
+                }
+
+                else
+                {
+                    resultRichTextBox.AppendText("       not found     ");
+                }
+
+
+
+
+            }
+
+
+
+            if (mobileRadioButton.Checked)
+            {
+                if (mobile.Contains(mobileTextBox.Text))
+                {
+                    var j = mobile.IndexOf(mobileTextBox.Text);
+                    resultRichTextBox.AppendText(" \n");
+                    resultRichTextBox.AppendText("       student info      ");
+                    resultRichTextBox.AppendText("\n===============================");
+                    resultRichTextBox.AppendText("\n     student id:      " + id[j]);
+                    resultRichTextBox.AppendText("\n     student name:      " + name[j]);
+                    resultRichTextBox.AppendText("\n     student Mobile:      " + mobile[j]);
+                    resultRichTextBox.AppendText("\n     student age:      " + age[j]);
+                    resultRichTextBox.AppendText("\n     student addr.:      " + address[j]);
+                    resultRichTextBox.AppendText("\n     student GPA:      " + gpa[j]);
+                    resultRichTextBox.AppendText(" \n");
+
+                }
+
+                else
+                {
+                    resultRichTextBox.AppendText("       not found     ");
+                }
+
+
+
+            }
+        }
+    }
     }
 
-}
+
 

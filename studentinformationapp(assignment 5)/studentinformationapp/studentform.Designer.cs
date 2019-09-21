@@ -44,10 +44,10 @@
             this.addButton = new System.Windows.Forms.Button();
             this.showButton = new System.Windows.Forms.Button();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.nameRadioButton = new System.Windows.Forms.RadioButton();
-            this.idRadioButton = new System.Windows.Forms.RadioButton();
-            this.mobileRadioButton = new System.Windows.Forms.RadioButton();
             this.searchButton = new System.Windows.Forms.Button();
+            this.mobileRadioButton = new System.Windows.Forms.RadioButton();
+            this.idRadioButton = new System.Windows.Forms.RadioButton();
+            this.nameRadioButton = new System.Windows.Forms.RadioButton();
             this.maxTextBox = new System.Windows.Forms.TextBox();
             this.minTextBox = new System.Windows.Forms.TextBox();
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
@@ -201,27 +201,15 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "search";
             // 
-            // nameRadioButton
+            // searchButton
             // 
-            this.nameRadioButton.AutoSize = true;
-            this.nameRadioButton.Location = new System.Drawing.Point(25, 20);
-            this.nameRadioButton.Name = "nameRadioButton";
-            this.nameRadioButton.Size = new System.Drawing.Size(51, 17);
-            this.nameRadioButton.TabIndex = 0;
-            this.nameRadioButton.TabStop = true;
-            this.nameRadioButton.Text = "name";
-            this.nameRadioButton.UseVisualStyleBackColor = true;
-            // 
-            // idRadioButton
-            // 
-            this.idRadioButton.AutoSize = true;
-            this.idRadioButton.Location = new System.Drawing.Point(25, 44);
-            this.idRadioButton.Name = "idRadioButton";
-            this.idRadioButton.Size = new System.Drawing.Size(36, 17);
-            this.idRadioButton.TabIndex = 1;
-            this.idRadioButton.TabStop = true;
-            this.idRadioButton.Text = "ID";
-            this.idRadioButton.UseVisualStyleBackColor = true;
+            this.searchButton.Location = new System.Drawing.Point(117, 84);
+            this.searchButton.Name = "searchButton";
+            this.searchButton.Size = new System.Drawing.Size(75, 23);
+            this.searchButton.TabIndex = 3;
+            this.searchButton.Text = "search";
+            this.searchButton.UseVisualStyleBackColor = true;
+            this.searchButton.Click += new System.EventHandler(this.searchButton_Click);
             // 
             // mobileRadioButton
             // 
@@ -234,14 +222,27 @@
             this.mobileRadioButton.Text = "Mobile";
             this.mobileRadioButton.UseVisualStyleBackColor = true;
             // 
-            // searchButton
+            // idRadioButton
             // 
-            this.searchButton.Location = new System.Drawing.Point(117, 84);
-            this.searchButton.Name = "searchButton";
-            this.searchButton.Size = new System.Drawing.Size(75, 23);
-            this.searchButton.TabIndex = 3;
-            this.searchButton.Text = "search";
-            this.searchButton.UseVisualStyleBackColor = true;
+            this.idRadioButton.AutoSize = true;
+            this.idRadioButton.Location = new System.Drawing.Point(25, 44);
+            this.idRadioButton.Name = "idRadioButton";
+            this.idRadioButton.Size = new System.Drawing.Size(36, 17);
+            this.idRadioButton.TabIndex = 1;
+            this.idRadioButton.TabStop = true;
+            this.idRadioButton.Text = "ID";
+            this.idRadioButton.UseVisualStyleBackColor = true;
+            // 
+            // nameRadioButton
+            // 
+            this.nameRadioButton.AutoSize = true;
+            this.nameRadioButton.Location = new System.Drawing.Point(25, 20);
+            this.nameRadioButton.Name = "nameRadioButton";
+            this.nameRadioButton.Size = new System.Drawing.Size(51, 17);
+            this.nameRadioButton.TabIndex = 0;
+            this.nameRadioButton.TabStop = true;
+            this.nameRadioButton.Text = "name";
+            this.nameRadioButton.UseVisualStyleBackColor = true;
             // 
             // maxTextBox
             // 
