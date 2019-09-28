@@ -55,7 +55,7 @@ namespace CoffeeShopCRUD
             }
             catch (Exception exception)
             {
-                MessageBox.Show(exception.Message);
+                MessageBox.Show("Invalid input or this item name is already used");
             }
         }
 
