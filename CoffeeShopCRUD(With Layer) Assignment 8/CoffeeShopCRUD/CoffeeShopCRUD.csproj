@@ -55,6 +55,14 @@
     <Compile Include="CustomerUi.Designer.cs">
       <DependentUpon>CustomerUi.cs</DependentUpon>
     </Compile>
+    <Compile Include="Model\Customer.cs" />
+    <Compile Include="Model\Item.cs" />
+    <Compile Include="OrdersUi.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="OrdersUi.Designer.cs">
+      <DependentUpon>OrdersUi.cs</DependentUpon>
+    </Compile>
     <Compile Include="OrderUi.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -78,6 +86,9 @@
     <EmbeddedResource Include="ItemUi.resx">
       <DependentUpon>ItemUi.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="OrdersUi.resx">
+      <DependentUpon>OrdersUi.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="OrderUi.resx">
       <DependentUpon>OrderUi.cs</DependentUpon>
     </EmbeddedResource>
@@ -90,6 +101,8 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
+    <None Include="Properties\DataSources\CoffeeShopCRUD.Model.Customer.datasource" />
+    <None Include="Properties\DataSources\CoffeeShopCRUD.Model.Item.datasource" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
       <LastGenOutput>Settings.Designer.cs</LastGenOutput>

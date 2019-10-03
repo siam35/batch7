@@ -148,6 +148,7 @@
             this.showDataGridView.Name = "showDataGridView";
             this.showDataGridView.Size = new System.Drawing.Size(487, 150);
             this.showDataGridView.TabIndex = 3;
+            this.showDataGridView.CellClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.showDataGridView_CellClick);
             // 
             // ItemUi
             // 

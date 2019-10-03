@@ -5,12 +5,13 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Text;
 using System.Threading.Tasks;
+using CoffeeShopCRUD.Model;
 
 namespace CoffeeShopCRUD.Repositoryitem
 {
     public class CustomerRepository
     {
-        public bool AddMethod(string name, string address, string contact)
+        public bool AddMethod(Customer customer)
         {
             try
             {
@@ -19,7 +20,7 @@ namespace CoffeeShopCRUD.Repositoryitem
                 SqlConnection sqlConnection = new SqlConnection(connectionString);
 
                 //command
-                string commandString = @"INSERT INTO Customer(Name,Address,Contact) VALUES ('" + name + "','" + address + "','" + contact + "')";
+                string commandString = @"INSERT INTO Customer(Name,Address,Contact) VALUES ('" + customer.Name + "','" + customer.address + "','" + customer.contact + "')";
                 SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
 
                 //execution
@@ -48,7 +49,7 @@ namespace CoffeeShopCRUD.Repositoryitem
             return false;
         }
 
-        public bool IsNameExists(string name)
+        public bool IsNameExists(Customer customer)
         {
             bool exists = false;
             try
@@ -59,7 +60,7 @@ namespace CoffeeShopCRUD.Repositoryitem
 
                 //Command 
                 //INSERT INTO Items (Name, Price) Values ('Black', 120)
-                string commandString = @"SELECT * FROM Customer WHERE Name='" + name + "'";
+                string commandString = @"SELECT * FROM Customer WHERE Name='" + customer.Name + "'";
                 SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
 
                 //Open
@@ -124,7 +125,7 @@ namespace CoffeeShopCRUD.Repositoryitem
 
 
 
-        public bool DeleteMethod(int id)
+        public bool DeleteMethod(Customer customer)
         {
             try
             {
@@ -133,7 +134,7 @@ namespace CoffeeShopCRUD.Repositoryitem
                 SqlConnection sqlConnection = new SqlConnection(connectionString);
 
                 //command
-                string commandString = @"DELETE FROM Customer WHERE Customer_ID = " + id + "";
+                string commandString = @"DELETE FROM Customer WHERE Id = " + customer.Id + "";
                 SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
 
                 //execution
@@ -164,7 +165,7 @@ namespace CoffeeShopCRUD.Repositoryitem
 
 
 
-        public bool UpdateMethod(string name, string address, string contact, int id)
+        public bool UpdateMethod(Customer customer)
         {
             try
             {
@@ -173,7 +174,7 @@ namespace CoffeeShopCRUD.Repositoryitem
                 SqlConnection sqlConnection = new SqlConnection(connectionString);
 
                 //command
-                string commandString = @"UPDATE Customer SET Name = '" + name + "', Address = '" + address + "', Contact='" + contact + "' WHERE Customer_ID = " + id + "";
+                string commandString = @"UPDATE Customer SET Name = '" + customer.Name + "', Address = '" + customer.address + "', Contact='" + customer.contact + "' WHERE Id = " + customer.Id + "";
                 SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
 
                 //execution
@@ -204,7 +205,7 @@ namespace CoffeeShopCRUD.Repositoryitem
 
 
 
-        public DataTable SearchMethod(string name)
+        public DataTable SearchMethod(Customer customer)
         {
 
             //connection
@@ -212,7 +213,7 @@ namespace CoffeeShopCRUD.Repositoryitem
             SqlConnection sqlConnection = new SqlConnection(connectionString);
 
             //command
-            string commandString = @"SELECT * FROM Customer WHERE Name='" + name + "'";
+            string commandString = @"SELECT * FROM Customer WHERE Name='" + customer.Name + "'";
             SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
 
             //execution
@@ -237,6 +238,41 @@ namespace CoffeeShopCRUD.Repositoryitem
 
             sqlConnection.Close();
             return dataTable;
+        }
+
+        public DataTable CustomerCombo()
+        {
+            //connection
+            string connectionString = @"Server=DESKTOP-CR4IGJV; DataBase=CoffeeShop; Integrated Security=True";
+            SqlConnection sqlConnection = new SqlConnection(connectionString);
+
+            //command
+            string commandString = @"SELECT Id,Name FROM Customer";
+            SqlCommand sqlCommand = new SqlCommand(commandString, sqlConnection);
+
+            //execution
+
+            sqlConnection.Open();
+
+            SqlDataAdapter sqlDataAdapter = new SqlDataAdapter(sqlCommand);
+            DataTable dataTable = new DataTable();
+            sqlDataAdapter.Fill(dataTable);
+            //if (dataTable.Rows.Count > 0)
+            //{
+            //    showDataGridView.DataSource = dataTable;
+            //}
+            //else
+            //{
+            //    showDataGridView.DataSource = null;
+            //    MessageBox.Show("No data found");
+            //}
+
+
+
+            sqlConnection.Close();
+
+            return dataTable;
+
         }
     }
 }
